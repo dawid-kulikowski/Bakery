@@ -10,4 +10,8 @@ public enum CakeTaste {
     private CakeTaste(String ingredients) {
         this.ingredients = ingredients;
     }
+
+    public String getIngredients() {
+        return ingredients;
+    }
 }

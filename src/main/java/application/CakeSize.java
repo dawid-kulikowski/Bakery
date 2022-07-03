@@ -10,6 +10,9 @@ public enum CakeSize {
         this.sizeDesc = sizeDesc;
     }
 
+    public String getSizeDesc() {
+        return sizeDesc;
+    }
 }
 
 
