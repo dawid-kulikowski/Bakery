@@ -6,14 +6,25 @@ public class Cake {
 
     private CakeTaste cakeTaste;
     private CakeSize cakeSize;
-    private Scanner scanner = new Scanner(System.in);
+    private double cakePrice;
+    private final Scanner scanner = new Scanner(System.in);
 
-    public Cake(){
+    public Cake() {
     }
 
-    public Cake(CakeTaste cakeTaste, CakeSize cakeSize) {
+    public Cake(CakeTaste cakeTaste, CakeSize cakeSize, double cakePrice) {
         this.cakeTaste = cakeTaste;
         this.cakeSize = cakeSize;
+        this.cakePrice = cakePrice;
+    }
+
+
+    public double getCakePrice() {
+        return cakePrice;
+    }
+
+    public void setCakePrice(double cakePrice) {
+        this.cakePrice = cakePrice;
     }
 
     public CakeTaste getCakeTaste() {
@@ -22,15 +33,11 @@ public class Cake {
 
     public void setCakeTaste() {
         int choose;
-        System.out.println("Choose your Cake Taste:");
-        System.out.println("1. Strawberry-Chocolate");
-        System.out.println("2. Cherry Cake");
-        System.out.println("3. Forrest-Fruit Cake");
         choose = scanner.nextInt();
         switch (choose) {
-            case 1: this.cakeTaste = (CakeTaste.STRAWBERRY_CHOCOLATE); break;
-            case 2: this.cakeTaste = (CakeTaste.CHERRY); break;
-            case 3: this.cakeTaste = (CakeTaste.FORREST_FRUITS); break;
+            case 1 -> this.cakeTaste = (CakeTaste.STRAWBERRY_CHOCOLATE);
+            case 2 -> this.cakeTaste = (CakeTaste.CHERRY);
+            case 3 -> this.cakeTaste = (CakeTaste.FORREST_FRUITS);
         }
     }
 
@@ -40,13 +47,11 @@ public class Cake {
 
     public void setCakeSize() {
         int choose;
-        System.out.println("Choose your Cake Size:");
-        System.out.println("1. Small");
-        System.out.println("2. Large");
+
         choose = scanner.nextInt();
         switch (choose) {
-            case 1: this.cakeSize = (CakeSize.SMALL); break;
-            case 2: this.cakeSize = (CakeSize.LARGE); break;
+            case 1 -> this.cakeSize = (CakeSize.SMALL);
+            case 2 -> this.cakeSize = (CakeSize.LARGE);
         }
     }
 }
