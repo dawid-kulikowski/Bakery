@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Order extends Cake {
@@ -7,6 +9,7 @@ public class Order extends Cake {
     private double deliveryPrice;
     private double orderPrice;
     private int quantity;
+    private List<Order> fullOrder = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
 
@@ -39,6 +42,7 @@ public class Order extends Cake {
 
     public void orderMenu() {
         Order order = new Order();
+        int choose;
         System.out.println("Welcome in Bakery App!");
         System.out.println("Choose your Cake Taste:");
         System.out.println("1. Strawberry-Chocolate");
@@ -51,7 +55,14 @@ public class Order extends Cake {
         order.setCakeSize();
         System.out.println("Quantity:");
         order.setQuantity();
-        order.totalPriceCounter(order);
+        fullOrder.add(order);
+        System.out.println("Do you Want anything else?");
+        choose = scanner.nextInt();
+        if (choose == 1){
+            orderMenu();
+        } else {
+            order.totalPriceCounter(order);
+        }
     }
 
     private void totalPriceCounter(Order order) {
@@ -100,47 +111,3 @@ public class Order extends Cake {
 
     }
 }
-
-
-//    public static void createOrder(CakeTaste cakeTaste, CakeSize cakeSize, boolean delivery){
-//
-//    }
-
-//}
-
-
-//
-//switch (choose) {
-//            case 1 :
-//                System.out.println("What size of Strawberry-Chocolate Cake do you want to order?");
-//                System.out.println("1. Small");
-//                System.out.println("2. Large");
-//
-//                choose = scanner.nextInt();
-//                if(choose == 1) {
-//                    order.setCakeSize(CakeSize.SMALL);
-//                    System.out.println("Quantity:");
-//                    order.setQuantity(scanner.nextInt());
-//                    System.out.println("wybrałeś " + order.getQuantity());
-//                } else if (choose == 2){
-//                    order.setCakeSize(CakeSize.LARGE);
-//                    System.out.println("Quantity:");
-//                    order.setQuantity(scanner.nextInt());
-//                } else {
-//                    throw new IllegalStateException("Unexpected value: " + choose);
-//                    }
-//                break;
-//
-//            case 2 :
-//                System.out.println("What size of Cherry Cake do you want to order?");
-//                System.out.println("1. Small");
-//                System.out.println("2. Large");
-//                break;
-//            case 3 :
-//                System.out.println("What size of Forrest Fruit Cake do you want to order?");
-//                System.out.println("1. Small");
-//                System.out.println("2. Large");
-//                break;
-//            default:
-//                throw new IllegalStateException("Unexpected value: " + choose);
-
