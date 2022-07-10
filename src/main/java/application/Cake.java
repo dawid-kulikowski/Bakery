@@ -34,6 +34,7 @@ public class Cake {
     public void setCakeTaste() {
         int choose;
         choose = scanner.nextInt();
+
         switch (choose) {
             case 1 -> this.cakeTaste = (CakeTaste.STRAWBERRY_CHOCOLATE);
             case 2 -> this.cakeTaste = (CakeTaste.CHERRY);
